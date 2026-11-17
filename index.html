@@ -1,19 +1,41 @@
+<!--
+  ABOUT THIS FILE (index.html)
+  This is the main page of the DES.ART website.
+  It is a portfolio + commission website for Destiny Andrea Gonzaga.
+  A visitor can: see the artworks, check the rates, check free dates,
+  send a booking request, and send a message.
+  The design (colors, spacing, layout) is in css/style.css, not here.
+  The pictures are in the images/ folder.
+  This file only has the content and the structure.
+
+  FOLDER STRUCTURE
+  index.html
+  css/style.css
+  images/ (digital-art-01.jpg to digital-art-13.jpg)
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Makes the page fit phone screens -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Title shows on the browser tab -->
   <title>DES.ART | Digital Creative Portfolio and Commissions</title>
+  <!-- Short text that shows in Google search results -->
   <meta name="description" content="Video editing, motion graphics, digital illustration, and graphic design by DES.ART. Check availability and request a commission.">
+  <!-- Loads the Poppins font from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <!-- Connects this page to the design file inside the css folder -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- HEADER: logo and menu at the top. It stays on top when you scroll. -->
 <header class="site-header">
   <a class="logo" href="#home">DES.ART</a>
+  <!-- Each link jumps to the section with the same id (example: #portfolio) -->
   <nav aria-label="Main">
     <ul>
       <li><a href="#home">Home</a></li>
@@ -28,7 +50,7 @@
 </header>
 
 <main>
-  <!-- HOME -->
+  <!-- HOME: the first thing visitors see. Big title and two buttons. -->
   <section id="home" class="hero">
     <h1>Edits, motion, and art for your next project.</h1>
     <p class="lead">DES.ART is a one-person creative studio for video editing, motion graphics, digital illustration, and graphic design. Check my schedule, then send a commission request.</p>
@@ -38,12 +60,14 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
+  <!-- PORTFOLIO: gallery of my digital art. Click a picture to open it full size. -->
   <section id="portfolio">
     <h2>Portfolio</h2>
     <p class="intro">A selection of my digital art and designs. Click any piece to view it in full size.</p>
 
     <h3 class="gallery-title">Digital Art</h3>
+    <!-- Each picture is in the images folder. The alt text describes the picture for screen readers. -->
+    <!-- loading="lazy" means the picture loads only when you scroll to it (faster page). -->
     <div class="gallery gallery-art">
       <a href="images/digital-art-01.jpg" target="_blank" rel="noopener"><img src="images/digital-art-01.jpg" alt="Green-haired girl looking back from a bathroom, her mirror reflection surrounded by eyes" loading="lazy"></a>
       <a href="images/digital-art-02.jpg" target="_blank" rel="noopener"><img src="images/digital-art-02.jpg" alt="Upuan poster on social inequality and poverty" loading="lazy"></a>
@@ -60,15 +84,17 @@
       <a href="images/digital-art-13.jpg" target="_blank" rel="noopener"><img src="images/digital-art-13.jpg" alt="Shizu Xin, Guardian of Celestial, side profile portrait" loading="lazy"></a>
     </div>
 
+    <!-- Button that opens my Facebook page in a new tab -->
     <p class="more">
       <a class="btn" href="https://www.facebook.com/sh1zu.1" target="_blank" rel="noopener">See more on my Facebook</a>
     </p>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES: list of what I offer and the starting price of each -->
   <section id="services">
     <h2>Services &amp; Rates</h2>
     <p class="intro">Starting rates in Philippine pesos. Final price depends on length, detail, and deadline.</p>
+    <!-- Each li is one service: name + short description on the left, price on the right -->
     <ul class="rates">
       <li><div><h3>Motion graphics</h3><p>Animated titles, logo reveals, and overlays.</p></div><span class="price">from ₱500</span></li>
       <li><div><h3>Short-form video editing</h3><p>Reels, TikToks, and Shorts with captions and effects.</p></div><span class="price">from ₱300</span></li>
@@ -80,13 +106,17 @@
     </ul>
   </section>
 
-  <!-- AVAILABILITY -->
+  <!-- AVAILABILITY: calendar for December 2026 that shows which dates are free -->
   <section id="availability">
     <h2>Availability</h2>
     <p class="intro">Pick a free date, then send a booking request. A request is only confirmed after I approve it.</p>
     <div class="calendar">
       <h3>December 2026</h3>
+      <!-- Day names on top of the calendar -->
       <ol class="days-head" aria-hidden="true"><li>Sun</li><li>Mon</li><li>Tue</li><li>Wed</li><li>Thu</li><li>Fri</li><li>Sat</li></ol>
+      <!-- The dates. The class sets the color: free = available, busy = limited slots, off = unavailable -->
+      <!-- To change a date, just change its class. Example: class="free" to class="busy" -->
+      <!-- The two blank li are empty boxes so Dec 1 starts on Tuesday -->
       <ol class="days">
         <li class="blank"></li><li class="blank"></li>
         <li class="free">1</li><li class="free">2</li><li class="busy">3</li><li class="busy">4</li><li class="off">5</li>
@@ -95,6 +125,7 @@
         <li class="off">20</li><li class="busy">21</li><li class="busy">22</li><li class="off">23</li><li class="off">24</li><li class="off">25</li><li class="off">26</li>
         <li class="off">27</li><li class="free">28</li><li class="free">29</li><li class="free">30</li><li class="free">31</li>
       </ol>
+      <!-- Color guide under the calendar -->
       <ul class="legend">
         <li><i class="key free"></i>Available</li>
         <li><i class="key busy"></i>Busy, limited slots</li>
@@ -103,10 +134,11 @@
     </div>
   </section>
 
-  <!-- COMMISSION INFO -->
+  <!-- COMMISSION INFO: how ordering works and the common questions -->
   <section id="commission-info">
     <h2>Commission Info</h2>
     <h3>How it works</h3>
+    <!-- 5 steps. The numbers are added automatically by the CSS -->
     <ol class="steps">
       <li>Check the availability calendar.</li>
       <li>Send a booking request with your service, details, and deadline.</li>
@@ -115,6 +147,7 @@
       <li>Receive your work and request revisions.</li>
     </ol>
     <h3>Frequently asked questions</h3>
+    <!-- details/summary makes a box that opens when you click the question -->
     <div class="faq">
       <details><summary>How many revisions are included?</summary><p>Each commission includes two rounds of revisions. Extra revisions may cost more.</p></details>
       <details><summary>How long does a commission take?</summary><p>Short edits and graphics usually take 2 to 5 days. Longer videos take more time, so send your deadline early.</p></details>
@@ -124,13 +157,16 @@
     <p class="note">The rates and policies on this page are samples. Change them to match your own.</p>
   </section>
 
-  <!-- BOOK NOW -->
+  <!-- BOOK NOW: form for a commission request -->
+  <!-- Note: action="#" means the form does not send anywhere yet. It needs a backend or a form service later. -->
   <section id="book">
     <h2>Book Now</h2>
     <p class="intro">Fill in the form to request a commission. This is not a confirmed booking until I approve it.</p>
     <form class="form" action="#" method="post">
+      <!-- "required" means the visitor must fill it before sending -->
       <label>Full name<input type="text" name="name" required autocomplete="name"></label>
       <label>Contact (email or social media)<input type="text" name="contact" required></label>
+      <!-- Dropdown to pick the service -->
       <label>Service
         <select name="service" required>
           <option value="">Choose a service</option>
@@ -143,6 +179,7 @@
           <option>Graphic design</option>
         </select>
       </label>
+      <!-- Dropdown to pick the budget -->
       <label>Budget range
         <select name="budget" required>
           <option value="">Choose a range</option>
@@ -152,17 +189,28 @@
           <option>Above ₱2,000</option>
         </select>
       </label>
+      <!-- Date pickers -->
       <label>Preferred start date<input type="date" name="start" required></label>
       <label>Deadline<input type="date" name="deadline" required></label>
+      <!-- Big text box. The class "wide" makes it use the full row. -->
       <label class="wide">Project details<textarea name="details" rows="5" required placeholder="Tell me what you want, your references, and any file links."></textarea></label>
       <button class="btn wide" type="submit">Send booking request</button>
     </form>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT: my contact details and a message form -->
   <section id="contact">
     <h2>Contact / Message Me</h2>
     <p class="intro">Have a question about services, pricing, revisions, or requirements? Send it here.</p>
+
+    <!-- My name, phone number, and email. The links let visitors tap to call or email. -->
+    <ul class="contact-details">
+      <li><span class="label">Name</span>Destiny Andrea Gonzaga</li>
+      <li><span class="label">Phone</span><a href="tel:+639195123105">09195123105</a></li>
+      <li><span class="label">Email</span><a href="mailto:shizuxin1@gmail.com">shizuxin1@gmail.com</a></li>
+    </ul>
+
+    <!-- Message form (same idea as the booking form, but shorter) -->
     <form class="form" action="#" method="post">
       <label>Name<input type="text" name="name" required autocomplete="name"></label>
       <label>Email<input type="email" name="email" required autocomplete="email"></label>
@@ -171,10 +219,11 @@
     </form>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT: short intro about me and the tools I use -->
   <section id="about">
     <h2>About the Creator</h2>
-    <p class="about-text">I am a student creator who edits videos, animates motion graphics, and draws digital art. I like clean layouts, strong music timing, and details that make a project feel finished. I work on my own, so every commission gets my full attention.</p>
+    <p class="about-text">I am Destiny Andrea Gonzaga, a student creator who edits videos, animates motion graphics, and draws digital art. I like clean layouts, strong music timing, and details that make a project feel finished. I work on my own, so every commission gets my full attention.</p>
+    <!-- Each li shows as a small rounded tag -->
     <ul class="tools">
       <li>Alight Motion</li>
       <li>Adobe After Effects</li>
@@ -183,8 +232,13 @@
   </section>
 </main>
 
+<!-- FOOTER: copyright, developer name, contact details, and a link back to the top -->
 <footer class="site-footer">
-  <p>© 2026 DES.ART. All rights reserved.</p>
+  <div class="footer-info">
+    <p>© 2026 DES.ART. All rights reserved.</p>
+    <p class="dev">Developed by Destiny Andrea Gonzaga</p>
+    <p>Phone: <a href="tel:+639195123105">09195123105</a> | Email: <a href="mailto:shizuxin1@gmail.com">shizuxin1@gmail.com</a></p>
+  </div>
   <a href="#home">Back to top</a>
 </footer>
 

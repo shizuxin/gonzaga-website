@@ -1,21 +1,48 @@
-/* DES.ART - simple CSS */
+/*
+  DES.ART - style.css
+  Developer: Destiny Andrea Gonzaga
+  This is the design file of the DES.ART website (css/style.css).
+  It controls the colors, fonts, spacing, and layout of index.html.
+  Theme: dark maroon cinematic (near-black background with maroon and rose accents).
+
+  COLOR PALETTE
+  Main colors (from my Lab 2 proposal):
+  #171216 = near-black    (page background)
+  #4A172B = deep maroon   (header, calendar box, contact box)
+  #742C45 = wine red      (buttons, step numbers)
+  #B76E79 = muted rose    (hover, prices, accents)
+  #F7F1F0 = soft cream    (main text, free dates)
+
+  Extra shades (small helpers):
+  #d9cfcf = light gray    (intro and small text)
+  #2a1a22 = dark plum     (input boxes, unavailable dates)
+  #5a4a52 = muted mauve   (thin lines between items)
+  #9a8a90 = dusty gray    (text of unavailable dates)
+
+  FONTS
+  Headings, logo, buttons, prices: Poppins
+  Body text: Aptos, then Arial if Aptos is not on the computer
+*/
 
 /* ---------- Basic setup ---------- */
+/* box-sizing: border-box makes padding count inside the width, so sizes are easier to control */
 * {
     box-sizing: border-box;
 }
 
+/* Settings for the whole page */
 body {
     margin: 0;
     background-color: #171216;
     /* near-black */
     color: #F7F1F0;
     /* soft cream */
-    font-family: Arial, sans-serif;
+    font-family: Aptos, Arial, sans-serif;
     font-size: 17px;
     line-height: 1.6;
 }
 
+/* Headings, logo, buttons, and prices use the Poppins font */
 h1,
 h2,
 h3,
@@ -25,10 +52,12 @@ h3,
     font-family: Poppins, Arial, sans-serif;
 }
 
+/* Links are cream colored */
 a {
     color: #F7F1F0;
 }
 
+/* Removes the bullets and default spacing from lists */
 ul,
 ol {
     list-style: none;
@@ -36,6 +65,7 @@ ol {
     padding: 0;
 }
 
+/* Every section is centered and has a max width of 1100px */
 section {
     max-width: 1100px;
     margin: 0 auto;
@@ -52,12 +82,15 @@ h3 {
     margin: 0;
 }
 
+/* The small gray text under each section title */
 .intro {
     color: #d9cfcf;
     margin-bottom: 30px;
 }
 
 /* ---------- Header and menu ---------- */
+/* The top bar. sticky + top: 0 keeps it on top while scrolling. */
+/* display: flex puts the logo on the left and the menu on the right */
 .site-header {
     background-color: #4A172B;
     /* deep maroon */
@@ -76,6 +109,7 @@ h3 {
     text-decoration: none;
 }
 
+/* Puts the menu links in one row */
 .site-header ul {
     display: flex;
     flex-wrap: wrap;
@@ -91,6 +125,7 @@ h3 {
     /* muted rose */
 }
 
+/* The "Book Now" link in the menu looks like a rounded button */
 .nav-cta {
     background-color: #742C45;
     /* wine red */
@@ -111,20 +146,24 @@ h3 {
     cursor: pointer;
 }
 
+/* Button changes color when the mouse is on it */
 .btn:hover {
     background-color: #B76E79;
 }
 
+/* The outlined button ("See my work") with no fill */
 .btn-ghost {
     background-color: transparent;
     border: 1px solid #B76E79;
 }
 
+/* Space between the two home buttons */
 .actions .btn {
     margin-right: 10px;
 }
 
 /* ---------- Home ---------- */
+/* Big title on the first section */
 .hero h1 {
     font-size: 54px;
     line-height: 1.1;
@@ -142,7 +181,36 @@ h3 {
 
 
 
+/* ---------- Featured work (on Home) ---------- */
+/* 3 pictures in a row. object-fit: cover fills each box evenly (small crop), */
+/* so the 3 pictures look the same size. The full pictures are in the Portfolio. */
+.featured-title {
+    font-size: 24px;
+    margin: 50px 0 20px 0;
+}
+
+.featured {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.featured img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.featured a:hover img {
+    outline: 2px solid #B76E79;
+}
+
 /* ---------- Portfolio ---------- */
+/* OLD STYLES: .gallery, figure, .thumb, .t1 to .t6, and figcaption are from */
+/* the first version (colored boxes). The page does not use them now except */
+/* .gallery (which is also used with .gallery-art). You can delete the rest. */
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -201,6 +269,7 @@ figcaption span {
 }
 
 /* Digital art gallery: keeps every artwork at its full shape, no cropping */
+/* It uses 3 columns (like a Pinterest board) so tall and wide pictures fit nicely */
 .gallery-title {
     font-size: 24px;
     margin: 0 0 20px 0;
@@ -212,12 +281,14 @@ figcaption span {
     column-gap: 20px;
 }
 
+/* break-inside: avoid stops a picture from being cut between two columns */
 .gallery-art a {
     display: block;
     margin-bottom: 20px;
     break-inside: avoid;
 }
 
+/* height: auto keeps the original picture shape */
 .gallery-art img {
     display: block;
     width: 100%;
@@ -225,11 +296,13 @@ figcaption span {
     border-radius: 4px;
 }
 
+/* A rose outline shows when the mouse is on a picture */
 .gallery-art a:hover img {
     outline: 2px solid #B76E79;
 }
 
 /* ---------- Services and rates ---------- */
+/* Each service is one row: text on the left, price on the right, line below */
 .rates li {
     display: flex;
     justify-content: space-between;
@@ -250,6 +323,7 @@ figcaption span {
 }
 
 /* ---------- Availability calendar ---------- */
+/* The maroon box that holds the calendar */
 .calendar {
     max-width: 520px;
     background-color: #4A172B;
@@ -261,6 +335,7 @@ figcaption span {
     margin-bottom: 15px;
 }
 
+/* Both the day names and the dates use a grid of 7 columns (one for each day of the week) */
 .days-head,
 .days {
     display: grid;
@@ -273,6 +348,7 @@ figcaption span {
     font-size: 14px;
 }
 
+/* Each date is a small rounded box */
 .days li {
     height: 50px;
     line-height: 50px;
@@ -281,6 +357,7 @@ figcaption span {
     font-weight: bold;
 }
 
+/* The 3 date colors */
 .free {
     background-color: #F7F1F0;
     /* available */
@@ -300,10 +377,12 @@ figcaption span {
     text-decoration: line-through;
 }
 
+/* Empty boxes before Dec 1 have no color */
 .days .blank {
     background: none;
 }
 
+/* The color guide under the calendar */
 .legend {
     display: flex;
     flex-wrap: wrap;
@@ -312,6 +391,7 @@ figcaption span {
     font-size: 15px;
 }
 
+/* The small color square in the guide */
 .key {
     display: inline-block;
     width: 14px;
@@ -329,10 +409,12 @@ figcaption span {
     padding: 8px 0;
 }
 
+/* Auto-numbering: counter-reset starts at 0, counter-increment adds 1 for each step */
 .steps {
     counter-reset: step;
 }
 
+/* The round number badge before each step */
 .steps li::before {
     counter-increment: step;
     content: counter(step);
@@ -346,6 +428,7 @@ figcaption span {
     margin-right: 12px;
 }
 
+/* FAQ: the question boxes that open when clicked */
 .faq {
     max-width: 700px;
 }
@@ -371,7 +454,45 @@ details p {
     color: #B76E79;
 }
 
+/* ---------- Contact details (name, phone, email) ---------- */
+/* The list of my contact info above the message form */
+.contact-details {
+    max-width: 750px;
+    margin-bottom: 30px;
+    background-color: #4A172B;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.contact-details li {
+    padding: 10px 0;
+    border-bottom: 1px solid #742C45;
+}
+
+/* No line under the last item */
+.contact-details li:last-child {
+    border-bottom: none;
+}
+
+/* The small word on the left (Name, Phone, Email) */
+.contact-details .label {
+    display: inline-block;
+    width: 80px;
+    color: #B76E79;
+    font-family: Poppins, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.contact-details a {
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    color: #B76E79;
+}
+
 /* ---------- Forms ---------- */
+/* The booking form and message form use 2 columns */
 .form {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -384,10 +505,12 @@ details p {
     font-size: 15px;
 }
 
+/* "wide" makes an item use both columns (full row) */
 .wide {
     grid-column: 1 / 3;
 }
 
+/* Style for all the boxes where visitors type or choose */
 input,
 select,
 textarea {
@@ -400,9 +523,10 @@ textarea {
     border: 1px solid #742C45;
     border-radius: 5px;
     font-size: 16px;
-    font-family: Arial, sans-serif;
+    font-family: Aptos, Arial, sans-serif;
 }
 
+/* Rose outline when a box is selected */
 input:focus,
 select:focus,
 textarea:focus {
@@ -419,6 +543,7 @@ textarea:focus {
     color: #d9cfcf;
 }
 
+/* The tool names (Alight Motion, etc.) are small rounded tags */
 .tools {
     display: flex;
     flex-wrap: wrap;
@@ -433,21 +558,36 @@ textarea:focus {
 }
 
 /* ---------- Footer ---------- */
+/* Bottom bar: copyright, developer name, and contact details on the left, "Back to top" on the right */
 .site-footer {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
     padding: 25px 20px;
     border-top: 1px solid #5a4a52;
     font-size: 15px;
 }
 
+.footer-info p {
+    margin: 0 0 4px 0;
+}
+
+.footer-info .dev {
+    font-weight: bold;
+}
+
 /* ---------- Phone view ---------- */
+/* These rules only work when the screen is 700px wide or smaller (phones) */
 @media (max-width: 700px) {
     .hero h1 {
         font-size: 36px;
     }
 
+    /* Forms, featured work, and gallery become 1 column */
     .gallery,
+    .featured,
     .form {
         grid-template-columns: 1fr;
     }
@@ -464,7 +604,7 @@ textarea:focus {
         display: block;
     }
 
-
+    /* Header no longer sticks on top (saves screen space) */
     .site-header {
         position: static;
     }
